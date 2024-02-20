@@ -1,0 +1,15 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> pascalTraiangle = new ArrayList<List<Integer>>();
+        for (int i=0; i<numRows; i++) {
+            List<Integer> tempPascal = new ArrayList<Integer>();
+            int temp = 1;
+            for(int k=0; k<=i; k++) {
+                tempPascal.add(temp);
+                temp = (i==k) ? 0 : (temp * (i-k))/(k+1); // This formula calculates the value at every position
+            }
+            pascalTraiangle.add(tempPascal);
+        }
+        return pascalTraiangle;
+    }
+}

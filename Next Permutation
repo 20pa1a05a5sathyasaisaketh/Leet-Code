@@ -1,0 +1,49 @@
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        i = j = len(nums) - 1
+        idx1 = 0
+        idx2 = 0
+		
+        while i >= 1:
+            if nums[i-1] < nums[i]:
+                idx1 = i-1
+                break
+            i -= 1
+			
+        while j >= 1:
+            if nums[j] > nums[idx1]:
+                idx2 = j
+                break
+            j -= 1
+			
+        if idx1 == 0 and idx2 == 0:  # nums are in descending order
+            k = 0
+            l = len(nums) - 1
+            while k < l:
+                nums[k], nums[l] = nums[l], nums[k]
+                k += 1
+                l -= 1
+            return nums
+			
+        nums[idx1], nums[idx2] = nums[idx2], nums[idx1]
+        k = idx1 + 1
+        l = len(nums) - 1
+        while k < l:
+            nums[k], nums[l] = nums[l], nums[k]
+            k += 1
+            l -= 1
+
+
+
+
+
+
+
+    
+        
+    
+ 
+        
+       
+        
+        
